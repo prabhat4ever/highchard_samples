@@ -193,21 +193,13 @@ var colors = Highcharts.getOptions().colors,
             y: data[i].y,
             color: data[i].color
         });
-
-        // add version data
-        for (var j = 0; j < data[i].drilldown.data.length; j++) {
-            var brightness = 0.2 - (j / data[i].drilldown.data.length) / 5 ;
-            versionsData.push({
-                name: data[i].drilldown.categories[j],
-                y: data[i].drilldown.data[j],
-                color: Highcharts.Color(data[i].color).brighten(brightness).get()
-            });
-        }
     }
 
     // Create the chart
-    $('#container_modified').highcharts({
+    //$('#container_modified').highcharts({
+    var modified_donut = new Highcharts.Chart({
         chart: {
+        	renderTo: 'container_modified',
             type: 'pie'
         },
         title: {
